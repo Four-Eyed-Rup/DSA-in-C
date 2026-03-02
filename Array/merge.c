@@ -27,7 +27,8 @@ int main(){
     }
 
     for(i=0; i<n2; i++){
-        merge_arr[count-1] = arr2[i];
+        merge_arr[count] = arr2[i];
+        count++;
     }
 
     printf("\n The mergered array elements: ");
@@ -35,4 +36,5 @@ int main(){
         printf("\n arr[%d]: %d", i, merge_arr[i]);
     }
     return 0;
+
 }
