@@ -1,3 +1,4 @@
+// write a program for multiplication of two matrices
 #include <stdio.h>
 
 int main(){
@@ -15,7 +16,7 @@ int main(){
             scanf("%d", &arr1[i][j]);
         }
     }
-
+    // initializing matrix two
     printf("\n Enter the number of rows in second matrix: ");
     scanf("%d", &row2);
     printf("\n Enter the number of columns in second matrix: ");
@@ -54,6 +55,7 @@ int main(){
             }
         }
     } 
+    // display product matrix
     printf("\n Product Matrix---------------------------\n");
     for(i=0; i<row1; i++){
         for(j=0; j<col2; j++){
@@ -63,4 +65,5 @@ int main(){
     }
     
     return 0;
+
 }
