@@ -1,36 +1,28 @@
+// Write a program to impliment the linear search 
 #include <stdio.h>
 
-int main() {
-    int n, i, key, found = 0;
-
-    // Taking size of array
-    printf("Enter number of elements: ");
+int main(){
+    int n, num, i, j, pos=-1, found=0, arr[20];
+    printf("\n Enter the number of elements in the array: ");
     scanf("%d", &n);
-
-    int arr[n];
-
-    // Taking array elements at runtime
-    printf("Enter %d elements:\n", n);
-    for(i = 0; i < n; i++) {
+    //initialize the array elements
+    for(i=0; i<n; i++){
+        printf("arr[%d]: ",i);
         scanf("%d", &arr[i]);
     }
-
-    // Element to search
-    printf("Enter element to search: ");
-    scanf("%d", &key);
-
-    // Linear Search Logic
-    for(i = 0; i < n; i++) {
-        if(arr[i] == key) {
-            printf("Element found at position %d\n", i + 1);
+    // input searched number
+    printf("\n Enter the number that has to be searched: ");
+    scanf("%d", &num);
+    
+    //linear search
+    for(i=0; i<n; i++){
+        if( arr[i] == num){
             found = 1;
-            break;
+            pos = i;
+            printf("\n %d is found in the array at the %d position", num, pos+1);
         }
     }
-
-    if(found == 0) {
-        printf("Element not found\n");
-    }
-
+    if(found == 0)
+        printf("\n  %d is not found in the array");
     return 0;
 }
