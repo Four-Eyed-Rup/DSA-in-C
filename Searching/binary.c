@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int main(){
-    int n, num, i, beg, end, mid, pos, found = 0, arr[20];
+    int n, num, i, beg, end, mid, pos=-1, found = 0, arr[20];
     printf("\n Enter the number of elements of array: ");
     scanf("%d", &n);
 
@@ -39,4 +39,5 @@ int main(){
     if(found == 0)
         printf("\n %d is not found in the array", num);
     return 0;
+
 }
