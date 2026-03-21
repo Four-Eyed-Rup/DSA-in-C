@@ -1,3 +1,4 @@
+// Write a program to insert a new node after a given position in linked list 
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -34,10 +35,37 @@ struct node *create(struct node *start){
     }
     return start;
 }
+
+struct node *afterInsertion(struct node *start){
+    struct node *ptr, *preptr, *newnode;
+    int val, pos, count=0;
+    newnode = (struct node*)malloc(sizeof(struct node));
+    printf("\n Enter the position for value insertion: ");
+    scanf("%d", &pos);
+    printf("\n Enter the data that has to be inserted: ");
+    scanf("%d", &val);
+    newnode->data = val;
+    ptr = start;
+    while(count != pos){
+        preptr = ptr;
+        ptr = ptr->next;
+        count++;
+    }
+    if(preptr == NULL){
+        newnode->next = NULL;
+        preptr->next = newnode;
+    }
+    else{
+        newnode->next = ptr;
+        preptr->next = newnode;
+    }
+    return start;
+}
+
 struct node *display(struct node *start){
     struct node *ptr;
     ptr = start;
-    while(ptr->next != NULL){
+    while(ptr != NULL){
         printf("%d-> ", ptr->data);
         ptr = ptr->next;
     }
@@ -55,7 +83,7 @@ int main(){
                 start = create(start);
                 break;
             case 2:
-                //start = insert_after(start);
+                start = afterInsertion(start);
                 break;
             case 3:
                 start = display(start);
