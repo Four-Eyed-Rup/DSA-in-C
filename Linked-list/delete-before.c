@@ -1,3 +1,5 @@
+// Write a program to delete a node before of a given node 
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,10 +15,12 @@ struct node *create(struct node *start)
     struct node *newnode, *ptr;
     int val;
     printf("\n Enter the data: ");
-    scnaf("%d", &val);
+    scanf("%d", &val);
+    
     while (val != -1)
     {
         newnode = (struct node *)malloc(sizeof(struct node));
+        newnode->data = val;
         if (start == NULL)
         {
             start = newnode;
@@ -33,13 +37,40 @@ struct node *create(struct node *start)
             newnode->next = NULL;
         }
         printf("\n Enter the data: ");
-        scnaf("%d", &val);
+        scanf("%d", &val);
     }
     return start;
 }
 struct node *delete_before(struct node *start){
+    struct node *ptr, *preptr, *prepreptr;
+    int val;
+    printf("\n Enter the value whose before node has to be deleted: ");
+    scanf("%d", &val);
+    if(start == NULL){
+        printf("\n Underflow");
+    }
+    else{
+        ptr = start;
+        preptr = ptr;
+        while(ptr->data != val){
+            prepreptr = preptr;
+            preptr = ptr;
+            ptr = ptr->next;
+        }
+        prepreptr->next = ptr;
+        free(preptr); 
+    }
+    return start;
+}
+
+struct node *display(struct node *start){
     struct node *ptr;
-    if()
+    ptr = start;
+    while(ptr != NULL){
+        printf("%d-> ", ptr->data);
+        ptr = ptr->next;
+    }
+    printf("NULL");
     return start;
 }
 int main()
