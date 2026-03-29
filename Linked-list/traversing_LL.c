@@ -1,12 +1,15 @@
 // Write a program to traverse a linked list and display all the elements
+
 #include <stdio.h>
 #include <stdlib.h>
+// node structure
 struct node{
     int data;
     struct node *next;
 };
+// start pointer
 struct node *start;
-
+// creating new node
 struct node *create(struct node *start){
     struct node *ptr, *newnode;
     int num;
@@ -34,7 +37,7 @@ struct node *create(struct node *start){
     }
     return start;
 }
-
+// display function
 struct node *display(struct node *start){
     struct node *ptr = start;
     printf("\n");
