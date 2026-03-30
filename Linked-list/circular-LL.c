@@ -9,15 +9,16 @@ struct node{
 struct node *start;
 struct node *create(struct node *start){
     struct node *newnode, *ptr;
-    newnode = (struct node*)malloc(sizeof(struct node));
+    
     int val;
     printf("\nEnter -1 for exit");
     printf("\nEnter the data: ");
     scanf("%d", &val);
     while(val != -1){
+        newnode = (struct node*)malloc(sizeof(struct node));
         newnode->data = val;
-        if(start == start){
-            newnode->next = start;
+        if(start == NULL){
+            newnode->next = newnode;
             start = newnode;
         }
         else{
@@ -30,31 +31,71 @@ struct node *create(struct node *start){
         }
         printf("\nEnter -1 for exit");
         printf("\nEnter the data: ");
+        scanf("%d", &val);
     }
     return start;
 }
 struct node *insertBeg(struct node *start){
-    
+    struct node *ptr, *newnode;
+    int val;
+    newnode = (struct node*)malloc(sizeof(struct node));
+    printf("\nEnter the data: ");
+    scanf("%d", &val);
+    newnode->data = val;
+    ptr = start;
+    while(ptr->next != start){
+        ptr = ptr->next;
+    }
+    ptr->next = newnode;
+    newnode->next = start;
+    start = newnode;
     return start;
 }
 struct node *insertEnd(struct node *start){
-    
+    struct node *ptr, *newnode;
+    int val;
+    newnode = (struct node *)malloc(sizeof(struct node));
+    printf("\nEnter the data: ");
+    scanf("%d", &val);
+    newnode->data = val;
+    ptr = start;
+    while(ptr->next != start){
+        ptr = ptr->next;
+    }
+    ptr->next = newnode;
+    newnode->next = start;
     return start;
 }
 struct node *deleteBeg(struct node *start){
-    
+    struct node *ptr;
+    ptr = start;
+    while(ptr->next != start){
+        ptr = ptr->next;
+    }
+    ptr->next = start->next;
+    free(start);
+    start = ptr->next;
     return start;
 }
 struct node *deleteEnd(struct node *start){
-    
+    struct node *ptr, *preptr;
+    ptr = start;
+    while(ptr->next != start){
+        preptr = ptr;
+        ptr = ptr->next;
+    }
+    preptr->next = start;
+    free(ptr);
     return start;
 }
 struct node *display(struct node *start){
     struct node *ptr;
     ptr = start;
     while(ptr->next != start){
-        printf("%d-> ", &ptr->data);
+        printf("%d-> ", ptr->data);
+        ptr = ptr->next;
     }
+    printf("%d-> ", ptr->data);
     printf("NULL");
     return start;
 }
