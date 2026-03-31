@@ -1,4 +1,13 @@
-// Write a program to impliment a doubly linked list 
+/* Write a program to impliment a doubly linked list 
+1) insert a node at the beginning
+2) insert a node at the end
+3) insert a node before a given node
+4) insert a node after a given node
+5) delete a node at the beginning
+6) delete a node at the end
+7) delete a node before a given node
+8) delete a node after a given node
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
